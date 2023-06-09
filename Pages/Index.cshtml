@@ -1,0 +1,94 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Gioco Lingo";
+}
+<br />
+<br />
+<div class="text-center">
+    <div>
+        <h1>
+            @for(int i =0; i < Model.ParolaFinoAdOra.Length; i++) {
+                        <label>@Model.ParolaFinoAdOra[i]</label>     
+            }
+        </h1>
+    </div>
+
+    <br />
+ 
+    <br />
+
+    
+    
+    <br />
+
+    <br />
+
+    <div>
+
+            @if (!Model.Vittoria && !Model.Sconfitta)
+            {
+                <form method="post">
+
+                    <div class="form-group">
+
+                         <input type="text" class="form-control" maxlength="@Model.ParolaFinoAdOra.Length" name="ParolaProvata"/>                                 <!-- se cambi il termine nella post e non qui (parolaprovata) non funziona più nulla -->
+                
+                         <input type="submit" class="form-control" name="try" value="Fai un tentativo (la parola è lunga @Model.ParolaFinoAdOra.Length lettere)"/>
+                
+                    </div>
+                </form>
+
+
+                <br />
+                <br />
+
+                <br />
+                <br />
+
+
+            @if (Model.NumeroTentativi < 4)         
+            {
+                <label><i><h5><font color="darkgreen">Ti rimangono  &nbsp;  @(Model.NumeroTentativi)  &nbsp;  tentativi/o</font></h5></i></label>
+            }
+
+
+            <br />
+
+            <br />
+
+                <div>
+                    <h5>
+                        @if (Model.ListaAppareDaQualcheParte != null)
+                        {
+                            @for (int i = 0; i < Model.ListaAppareDaQualcheParte.Length; i++)
+
+                            {
+                                <label>La lettera  &nbsp;&nbsp;  @Model.ListaAppareDaQualcheParte[i]  &nbsp;&nbsp;  che hai scritto è nella parola da indovinare ma in una posizione diversa</label>
+
+                                <br /><br />
+                            }
+
+                        }
+
+                    </h5>
+
+                    <br>        
+                    <br>
+
+            </div>
+
+
+            } else if (Model.Vittoria) { 
+           
+                    <p style="text-align:center"><font face="Verdana" size="7" color="darkred">Vittoria</p>
+
+            }   else
+            {
+                    <p style="text-align:center"><font face="Verdana" size="7" color="darkblue">Sconfitta</p>
+            }
+
+
+
+    </div>
+</div>

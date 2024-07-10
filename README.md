@@ -1,8 +1,6 @@
 Applicazione che cerca di emulare il gioco televisivo Lingo.
 In Lingo bisogna trovare la parola entro un certo numero di tentativi, provando parole per trovare lettere in comune alla parola cercata.
 
-![image](https://github.com/cla1994/Gioco-Lingo/assets/116500326/e7dbf40b-efc0-4bf9-a65d-ffa62692ebb5)
-
 Gioco sviluppato come compito a casa durante il corso della Microsoft a Milano.
 
 Web App scritta in C# e HTML su Visual Studio.

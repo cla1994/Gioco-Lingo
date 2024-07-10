@@ -17,8 +17,7 @@
     <br />
  
     <br />
-
-    
+   
     
     <br />
 
@@ -32,20 +31,35 @@
 
                     <div class="form-group">
 
-                         <input type="text" class="form-control" maxlength="@Model.ParolaFinoAdOra.Length" name="ParolaProvata"/>                                 <!-- se cambi il termine nella post e non qui (parolaprovata) non funziona più nulla -->
+                         <input type="text" class="form-control" maxlength="@Model.ParolaFinoAdOra.Length" name="ParolaProvata"/>                                 <!-- se cambi il termine nella post e non qui (parolaprovata) non funziona più nulla, attenzione! -->
                 
                          <input type="submit" class="form-control" name="try" value="Fai un tentativo (la parola è lunga @Model.ParolaFinoAdOra.Length lettere)"/>
-                
+                        
                     </div>
                 </form>
 
-
                 <br />
                 <br />
 
                 <br />
                 <br />
 
+            if (Model.ListaParoleTentate.Count > 0)
+
+            {
+                <label>Finora hai provato le parole: </label>
+
+                @for (int i = 0; i < Model.ListaParoleTentate.Count; i++)
+
+                {
+                
+                    <label><i><h5><font color="darkblue"> @(Model.ListaParoleTentate[i]) </font></h5></i></label>
+                 
+                    <br />
+
+                    <br />
+                }
+            }
 
             @if (Model.NumeroTentativi < 4)         
             {
@@ -64,7 +78,7 @@
                             @for (int i = 0; i < Model.ListaAppareDaQualcheParte.Length; i++)
 
                             {
-                                <label>La lettera  &nbsp;&nbsp;  @Model.ListaAppareDaQualcheParte[i]  &nbsp;&nbsp;  che hai scritto è nella parola da indovinare ma in una posizione diversa</label>
+                            <label>@(i+1). &nbsp;&nbsp; La lettera  &nbsp;&nbsp;  @Model.ListaAppareDaQualcheParte[i]  &nbsp;&nbsp;  che hai scritto è nella parola da indovinare ma in una posizione diversa</label>
 
                                 <br /><br />
                             }
@@ -87,8 +101,7 @@
             {
                     <p style="text-align:center"><font face="Verdana" size="7" color="darkblue">Sconfitta</p>
             }
-
-
+    
 
     </div>
 </div>

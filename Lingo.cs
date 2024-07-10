@@ -11,16 +11,25 @@ namespace Day6Lab1 {
         public string StringaContiene;
 
         private string[] GruppoParolePossibili = {
-            "nequizia","livore","foriero","prodromo","astruso","mendace","melologo","lutolento" 
+            "nequizia","livore","foriero","prodromo","astruso","mendace","melologo","lutolento","pleonasmo","riverenza","propinquo",
+            "pernicioso","gaglioffo","fonema","delatore","bislacco","callido"
+           
         };
 
         public char EvitareMessaggioLettereDoppie = ' ';
 
         public int TentativiRimanenti = 5;
 
-        public Lingo() {
+        public List<string> ListaParoleProvate { get; set; }
+        
 
-            ListaUltimaConfigBooleani = new List<bool>();    
+    public Lingo() {
+
+            ListaUltimaConfigBooleani = new List<bool>();
+
+            ListaParoleProvate = new List<string>(); // attento a mettere questa parte di codice dentro il costruttore, non fuori...
+
+            ListaParoleProvate.Add(" "); //     se non crei l'oggetto prima con riga sopra, per forza non funziona nulla...
         } 
         public void SettaParolaDaIndovinare() {
 
@@ -31,7 +40,7 @@ namespace Day6Lab1 {
 
             Random rnd = new Random();
 
-            ParolaDaAzzeccare = MioGruppoParole[rnd.Next(0,7)];
+            ParolaDaAzzeccare = MioGruppoParole[rnd.Next(0,16)];
             
             for (int i = 0; i < ParolaDaAzzeccare.Length; i++) 
             { 
@@ -45,7 +54,7 @@ namespace Day6Lab1 {
                 }
             }
 
-            MostraParola(ParolaAllInizio);       
+            MostraParola(ParolaAllInizio);         
         }
 
         public string ContieneLetteraDaQualcheParte(string ParolaTentata)                               

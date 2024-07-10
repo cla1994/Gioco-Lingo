@@ -18,6 +18,8 @@ namespace Day6Lab1.Pages {
 
         public string ListaAppareDaQualcheParte = "";
 
+        public List<string> ListaParoleTentate { get; set; } //
+
         public IndexModel(ILogger<IndexModel> logger,Lingo Gioco) {
 
             _logger = logger;
@@ -29,6 +31,8 @@ namespace Day6Lab1.Pages {
             ListaAppareDaQualcheParte = Gioco.StringaContiene;
 
             NumeroTentativi = Gioco.TentativiRimanenti - 1;
+
+            ListaParoleTentate = Gioco.ListaParoleProvate; //
 
          ///   ListaBooleaniIndovinati = new List<bool>();
 
@@ -48,6 +52,8 @@ namespace Day6Lab1.Pages {
                 ListaBooleaniIndovinati = GiocoLingo.QualiLettereGiusteENon(ParolaProvata);
                 ListaAppareDaQualcheParte = GiocoLingo.ContieneLetteraDaQualcheParte(ParolaProvata);
                 ParolaFinoAdOra = GiocoLingo.ParolaFinoAdOra;
+
+                ListaParoleTentate.Add(ParolaProvata); // non è giocolingo.parolaprovata!
 
                 if (!ListaBooleaniIndovinati.Contains(false))
                 {
